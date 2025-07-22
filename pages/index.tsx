@@ -1,4 +1,3 @@
-// pages/index.tsx - Enhanced UI with better background and spacing
 import { useEffect, useState } from 'react';
 import { fetchStockData } from '@/lib/fetchStockData';
 import { PortfolioTable } from '@/components/PortfolioTable';
@@ -17,8 +16,12 @@ export default function Home() {
       const data = await fetchStockData(holdingsData);
       setStocks(data);
       setError(null);
-    } catch (err: any) {
-      setError(err.message || 'Failed to load data');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Failed to load data');
+      }
     } finally {
       setLoading(false);
     }
