@@ -1,0 +1,7 @@
+/*
+  The following directives require Tailwind CSS to be processed via PostCSS.
+  Make sure your build tool (like Next.js, Vite, or Webpack) is configured to use Tailwind CSS.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
